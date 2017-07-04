@@ -1,0 +1,44 @@
+{
+  "items": [
+    {
+      "strategy":"Медицина",
+      "idOption": 1,
+      "baseIndex": 5,
+      "versionCod": 1,
+      "currency":"USD",
+      "amount": "10000.00",
+      "dateStartSale":"12.05.2017",
+      "dateEndSale":"20.05.2017"
+    },
+    {
+      "strategy":"Недвижимость",
+      "idOption": 2,
+      "baseIndex": 3,
+      "versionCod": 14,
+      "currency":"EUR",
+      "amount": "11000.00",
+      "dateStartSale":"15.05.2017",
+      "dateEndSale":"22.05.2017"
+    },
+    {
+      "strategy":"Недвижимость",
+      "idOption": 23,
+      "baseIndex": 3,
+      "versionCod": 14,
+      "currency":"EUR",
+      "amount": "110200.00",
+      "dateStartSale":"14.05.2017",
+      "dateEndSale":"26.05.2017"
+    },
+    {
+      "strategy":"Недвижимость",
+      "idOption": 3,
+      "baseIndex": 4,
+      "versionCod": 11,
+      "currency":"EUR",
+      "amount": "30200.00",
+      "dateStartSale":"10.01.2017",
+      "dateEndSale":"26.06.2017"
+    }
+  ]
+}
