@@ -4,12 +4,14 @@ Ext.define('client.view.panel.Main', {
     xtype: 'mainPanel',
 
     requires: [
+        'Ext.form.FieldContainer',
         'Ext.form.Panel',
         'Ext.form.field.ComboBox',
         'Ext.form.field.Date',
         'Ext.form.field.Number',
         'Ext.form.field.Text',
         'Ext.layout.container.HBox',
+        'Ext.layout.container.VBox',
         'client.store.Cash',
         'client.store.Strategy',
         'client.view.panel.Grid',
@@ -22,68 +24,88 @@ Ext.define('client.view.panel.Main', {
         reference: 'form',
         width: '100%',
         layout: {
-            type: 'hbox',
+            type: 'vbox',
             align: 'stretch'
-        },
-        //layout: 'form',
-        defaults: {
-            // applied to each contained panel
-            bodyStyle: 'padding:20px'
         },
         items: [
             {
-             xtype:' fieldcontainer'
+                xtype: 'fieldcontainer',
+                fieldDefaults: {
+                    msgTarget: 'under',
+                    labelAlign: 'top',
+                    margin: '0 10 0 10'
+                },
+                layout: {
+                    type: 'hbox'
+                },
+                flex: 1,
+                items: [
+                    {
+                        xtype: 'combobox',
+                        name: 'strategy',
+                        flex: 1,
+                        fieldLabel: 'Стратегия',
+                        store: {
+                            type: 'strategy'
+                        },
+                        displayField: 'name',
+                        valueField: 'value'
+                    },
+                    {
+                        xtype: 'numberfield',
+                        name: 'idOption',
+                        flex: 1,
+                        fieldLabel: 'ID Опциона'
+                    },
+                    {
+                        xtype: 'textfield',
+                        name: 'amount',
+                        flex: 1,
+                        fieldLabel: 'Цена',
+                        vtype: 'amount'
+                    }
+                ]
             },
             {
-            xtype: 'combobox',
-            name: 'strategy',
-            flex:1,
-            labelAlign:'top',
-            fieldLabel: 'Стратегия',
-            store: {
-                type: 'strategy'
-            },
-            displayField: 'name',
-            valueField: 'value'
-        }, {
-            xtype: 'numberfield',
-            name: 'idOption',
-            flex:1,
-            labelAlign:'top',
-            fieldLabel: 'ID Опциона'
-        }, {
-            xtype: 'textfield',
-            name: 'amount',
-            flex:1,
-            labelAlign:'top',
-            fieldLabel: 'Цена',
-            vtype: 'amount'
-        }, {
-            xtype: 'combobox',
-            name: 'strategy',
-            flex:1,
-            labelAlign:'top',
-            fieldLabel: 'Валюта',
-            store: {
-                type: 'currency'
+                xtype: 'fieldcontainer',
+                fieldDefaults: {
+                    msgTarget: 'under',
+                    labelAlign: 'top',
+                    margin: '0 10 10 10'
+                },
+
+                layout: {
+                    type: 'hbox'
+                },
+                flex: 1,
+                items: [
+                    {
+                        xtype: 'combobox',
+                        name: 'strategy',
+                        flex: 1,
+                        fieldStyle: 'margin-right: 20px; margin-left: 20px;',
+                        fieldLabel: 'Валюта',
+                        store: {
+                            type: 'currency'
+                        }
+                    },
+                    {
+                        xtype: 'datefield',
+                        flex: 1,
+                        name: 'dateStartSale',
+                        format: 'd.m.Y',
+                        fieldLabel: 'Дата начала продаж'
+                    },
+                    {
+                        xtype: 'datefield',
+                        flex: 1,
+                        name: 'dateEndSale',
+                        format: 'd.m.Y',
+                        fieldLabel: 'Дата окончания продаж'
+                    }
+                ]
             }
-        }, {
-            xtype: 'datefield',
-            labelWidth: 150,
-            name: 'dateStartSale',
-            format: 'd.m.Y',
-            flex:1,
-            labelAlign:'top',
-            fieldLabel: 'Дата начала продаж'
-        }, {
-            xtype: 'datefield',
-            labelWidth: 150,
-            name: 'dateEndSale',
-            format: 'd.m.Y',
-            flex:1,
-            labelAlign:'top',
-            fieldLabel: 'Дата окончания продаж'
-        }],
+        ],
         buttons: [{
             text: 'Найти',
             formBind: true,
