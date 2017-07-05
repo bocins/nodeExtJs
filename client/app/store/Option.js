@@ -18,5 +18,7 @@ Ext.define('client.store.Option', {
             type: 'json',
             rootProperty: 'items'
         }
-    }
+    },
+    filters: [],
+    remoteFilter: true
 });
