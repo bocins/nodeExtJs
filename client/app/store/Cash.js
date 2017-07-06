@@ -3,7 +3,7 @@
  */
 Ext.define('client.store.Cash', {
     extend: 'Ext.data.Store',
-    alias: 'store.currency',
+    alias: 'store.cash',
     fields: ['name', 'value'],
 
     data: [

@@ -81,13 +81,14 @@ Ext.define('client.view.panel.Main', {
                 items: [
                     {
                         xtype: 'combobox',
-                        name: 'strategy',
+                        name: 'currency',
                         flex: 1,
-                        fieldStyle: 'margin-right: 20px; margin-left: 20px;',
                         fieldLabel: 'Валюта',
                         store: {
-                            type: 'currency'
-                        }
+                            type: 'cash'
+                        },
+                        displayField: 'name',
+                        valueField: 'value'
                     },
                     {
                         xtype: 'datefield',
